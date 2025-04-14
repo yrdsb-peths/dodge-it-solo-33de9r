@@ -20,6 +20,12 @@ public class Bomb extends Actor
         if (getX() <= 0) {
             resetBomb();
         }
+        
+        if (isTouching(Penguin.class)) {
+            Gameover end = new Gameover();
+            getWorld().addObject(end, 100, 100);
+            getWorld().removeObject(this);
+        }
     }
     
     public void resetBomb() {
